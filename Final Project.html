@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    body{
+      background: linear-gradient(20deg, transparent 30%, green 30%)
+      0 0/100% 20px repeat-y;
+    }
+    body{
+      background-color:orange;
+    }
+
+
+
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      background-color:darkred;
+    }
+    .calculator input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    .calculator button {
+      padding: 10px 20px;
+      font-size: 20px;
+      margin-bottom: 20px;
+      background-color:white;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" id="display" disabled />
+  <br />
+  <button id="1">1</button>
+  <button id="2">2</button>
+  <button id="3">3</button>
+  <button id="+">+</button>
+  <br />
+  <button id="4">4</button>
+  <button id="5">5</button>
+  <button id="6">6</button>
+  <button id="-">-</button>
+  <br />
+  <button id="7">7</button>
+  <button id="8">8</button>
+  <button id="9">9</button>
+  <button id="*">x</button>
+  <br />
+  <button id="c">C</button>
+  <button id="0">0</button>
+  <button id="=">=</button>
+  <button id="/">/</button>
+  <br />
+</div>
+
+<script>
+  const display = document.querySelector("#display");
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (button.id === "c") {
+        display.value = "";
+      } else if (button.id === "=") {
+        display.value = eval(display.value);
+      } else {
+        display.value += button.id;
+      }
+    });
+  });
+</script>
+</body>
+</html>
